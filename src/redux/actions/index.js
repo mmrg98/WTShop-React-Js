@@ -1,5 +1,8 @@
 // Types
-export { SET_PRODUCTS } from "./actionTypes";
-export { login, logout, signup, checkForExpiredToken } from "./authentication";
+export * from "./actionTypes";
 
-export { fetchProducts } from "./products";
+export * from "./products";
+
+export * from "./authentication";
+
+export * from "./cart";
