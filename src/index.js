@@ -8,14 +8,11 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux";
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 
-// styling 
+// styling
 import "bootstrap/dist/css/bootstrap.min.css";
 // custom styling
-
-
-
 
 ReactDOM.render(
   <React.StrictMode>
