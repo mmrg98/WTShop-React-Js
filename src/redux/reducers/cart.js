@@ -17,7 +17,8 @@ export default (items = [], { type, payload }) => {
       return items.filter((item) => item !== payload);
 
     case CHECKOUT:
-      return [];
+      items = []
+      return items;
 
     default:
       return items;

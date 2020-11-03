@@ -9,7 +9,7 @@ import { addItemToCart } from "../redux/actions";
 //Route
 import { Redirect, useParams } from "react-router-dom";
 
-const ProductDetail = ({ products, addItemToCart , cart}) => {
+const ProductDetail = ({ products, addItemToCart, cart }) => {
   const { productID } = useParams();
 
   const product = products.find((product) => product.id === +productID);
@@ -25,8 +25,6 @@ const ProductDetail = ({ products, addItemToCart , cart}) => {
       console.log("added");
       console.log(cart);
     }
-
-
   };
 
   return (
@@ -62,10 +60,9 @@ const ProductDetail = ({ products, addItemToCart , cart}) => {
   );
 };
 
-const mapStateToProps = (state,cartReducer) => ({
+const mapStateToProps = (state,cart) => ({
   products: state.productsReducer.products,
-  cart: cartReducer,
-
+  cart,
 });
 const mapDispatchToProps = {
   addItemToCart,
