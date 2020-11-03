@@ -1,17 +1,17 @@
 import React from "react";
-import "./App.css";
+
 import { Switch, Route, Redirect } from "react-router-dom";
 
 //actions
 
 // Components
-import ProductsList from './components/ProductsList';
+
+import ProductsList from "./components/ProductsList";
+import Signup from "./components/SignupForm";
+import Login from "./components/LoginFrom";
 import ProductDetail from './components/ProductDetail';
-
-
-
-
 import './App.css';
+
 
 function App() {
   return (
@@ -23,7 +23,12 @@ function App() {
       <Route path="/list">
         <ProductsList />
       </Route>
-      
+      <Route path="/signup">
+        <Signup />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
     </Switch>
   );
 }
