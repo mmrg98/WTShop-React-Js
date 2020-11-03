@@ -1,30 +1,38 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import {connect} from "react-redux"
+
+import { connect } from "react-redux";
+
+import { addItemToCart } from "../redux/actions";
 
 // Components
 
 //Route
 import { Redirect, useParams } from "react-router-dom";
 
-const ProductDetail = props => {
-  const {productID} = useParams();
+const ProductDetail = ({ products, addItemToCart , cart}) => {
+  const { productID } = useParams();
 
-  const product = props.products.find((product) => product.id === +productID)
+  const product = products.find((product) => product.id === +productID);
+  //const [item, setItem] = useState(product);
 
-  if (!product) return <Redirect to='/product'/>
-  
- 
-    return (
-
-        
-
-       
+  if (!product) return <Redirect to="/product" />;
 
 
-<div className="col-lg-4 col-md-6 col-12">
+  const submitOrder = () => {
+    if (!product) alert("Please select an item");
+    else {
+      addItemToCart({ product });
+      console.log("added");
+      console.log(cart);
+    }
+
+
+  };
+
+  return (
+    <div className="col-lg-4 col-md-6 col-12">
       <div className="card">
-      <div>
+        <div>
           <h3>{product.name}</h3>
           <img
             src={product.img}
@@ -34,23 +42,32 @@ const ProductDetail = props => {
         </div>
         <div className="card-body">
           <h5 className="card-title">
-          <small className="card-text">{product.price} $</small>
-          
-          <br/>
+            <small className="card-text">{product.price} $</small>
+
+            <br />
             <span>Description: {product.description}</span>
           </h5>
-          
+
           <span>category: {product.category}</span>
-          <br/>
+          <br />
           <small className="card-text">{product.stock} left</small>
+          <br />
+
+          <button className="btn btn-info ml-2" onClick={submitOrder}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
+  );
+};
 
-    );
-  }
+const mapStateToProps = (state,cartReducer) => ({
+  products: state.productsReducer.products,
+  cart: cartReducer,
 
-  const mapStateToProps = (state) =>({
-    products: state.productsReducer.products,
-  })
-  export default connect(mapStateToProps)(ProductDetail);
+});
+const mapDispatchToProps = {
+  addItemToCart,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

@@ -20,7 +20,7 @@ function App() {
       <Route path="/product/:productID">
             <ProductDetail />
           </Route>
-      <Route path="/list">
+      <Route path="/product">
         <ProductsList />
       </Route>
       <Route path="/signup">

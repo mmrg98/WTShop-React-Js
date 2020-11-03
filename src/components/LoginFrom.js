@@ -20,7 +20,7 @@ const Login = (props) => {
 
   const { username, password } = userData;
 
-  if (props.user) return <Redirect to="/list" />;
+  if (props.user) return <Redirect to="/product" />;
 
   return (
     <div className="col-6 mx-auto">
