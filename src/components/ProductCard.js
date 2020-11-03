@@ -1,11 +1,13 @@
 import React from "react";
 import {connect} from 'react-redux';
+import { Link } from "react-router-dom";
 
 
 const ProductCard = props => {
   const product = props.product;
   return (
     <div className="col-lg-4 col-md-6 col-12">
+      <Link to={`/product/${product.id}`} className="card">
       <div className="card">
         <div className="image">
           <img
@@ -18,9 +20,10 @@ const ProductCard = props => {
           <h5 className="card-title">
             <span>{product.name}</span>
           </h5>
-          <small className="card-text">{product.id} id</small>
+          <small className="card-text">{product.price} $</small>
         </div>
       </div>
+      </Link>
     </div>
   );
 };
