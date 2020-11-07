@@ -1,18 +1,17 @@
-import { SET_PRODUCTS} from "../actions";
-
+import { SET_PRODUCTS } from "../actions";
 
 const initialState = {
-    products: [],
-  };
+  products: [],
+};
 
-  const reducer = (state = initialState, { type, payload }) => {
-    switch (type) {
-      case SET_PRODUCTS:
-        const products = payload;
-        return {
-            products: products,
-        };
-        default:
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case SET_PRODUCTS:
+      const products = payload;
+      return {
+        products: products,
+      };
+    default:
       return state;
   }
 };

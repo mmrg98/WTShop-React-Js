@@ -11,14 +11,15 @@ import CartItem from "./CartItem";
 
 import { checkoutCart } from "../redux/actions";
 
-const Cart = ({ cart, user, checkoutCart}) => {
-  const cartItems = cart.map((item) => (
-    <CartItem item={item} key={item.product} />
-  ));
+const Cart = ({ theCart, user, checkoutCart }) => {
+  const cartItems = theCart.map((item) => <CartItem item={item.product} />); //key={item.product}
+  console.log(cartItems.length);
 
   const handleCheckout = () => {
-    if (user) checkoutCart(cart);
-  else {<Redirect to="/login" />};
+    if (user) checkoutCart(theCart);
+    else {
+      <Redirect to="/login" />;
+    }
   };
 
   return (
@@ -27,18 +28,17 @@ const Cart = ({ cart, user, checkoutCart}) => {
         <>
           {cartItems}
           <button full danger onClick={handleCheckout}>
-           Checkout
-           </button>
-          
-       </>
+            Checkout
+          </button>
+        </>
       ) : (
-      <p>Buy something</p> 
+        <p>Buy something</p>
       )}
-      </div>
+    </div>
   );
 };
 
-const mapStateToProps = ({ cart, user }) => ({ cart, user });
+const mapStateToProps = ({ theCart, user }) => ({ theCart, user });
 
 const mapDispatchToProps = {
   checkoutCart,
