@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 import { fetchOrders } from "../redux/actions";
 
-const Orders = ({ orders, fetchOrders }) => {
+const Orders = ({ orders, fetchOrders, user }) => {
+  console.log("user", { user });
+  if (!user) return <Redirect to="/product" />;
   let allorders = orders.map((order) => {
     const date = order.date_time;
     const total = order.total;
@@ -37,6 +40,7 @@ const Orders = ({ orders, fetchOrders }) => {
 const mapStateToProps = (state) => {
   return {
     orders: state.ordersReducer.orders,
+    user: state.user,
   };
 };
 const mapDispatchToProps = (dispatch) => ({

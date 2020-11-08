@@ -24,10 +24,14 @@ export const addItemToCart = (item) => async (dispatch) => {
   try {
     console.log("try to add");
     const res = await instance.post("orders/", item);
-    const new_item = res.data;
+    const cart = res.data;
+    // dispatch({
+    //   type: ADD_PRODUCT,
+    //   payload: new_item,
+    // });
     dispatch({
-      type: ADD_PRODUCT,
-      payload: new_item,
+      type: SET_CART,
+      payload: cart,
     });
   } catch (error) {
     console.error("no adding"); //error.response.data
