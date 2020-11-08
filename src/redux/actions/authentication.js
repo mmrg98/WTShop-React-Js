@@ -2,17 +2,13 @@ import decode from "jwt-decode";
 import instance from "./instance";
 import { SET_CURRENT_USER } from "./actionTypes";
 import Cookies from "js-cookie";
-import axios from "axios";
 
 export const login = (userData, history) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(
-        " http://127.0.0.1:8000/api/login/",
-        userData
-      );
-      const { token } = response.data;
-      dispatch(setCurrentUser(token));
+      const response = await instance.post("login/", userData);
+      const { access } = response.data;
+      dispatch(setCurrentUser(access));
       //   history.push("/");
     } catch (error) {
       console.error(error);
@@ -23,10 +19,7 @@ export const login = (userData, history) => {
 export const signup = (userData) => {
   return async (dispatch) => {
     try {
-      const response = await instance.post(
-        "http://127.0.0.1:8000/api/signup/",
-        userData
-      );
+      const response = await instance.post("signup/", userData);
       const { token } = response.data;
       dispatch(setCurrentUser(token));
       //   history.push("/");
@@ -42,7 +35,7 @@ export const logout = () => setCurrentUser();
 const setAuthToken = (token) => {
   if (token) {
     Cookies.set("token", token);
-    instance.defaults.headers.Authorization = `jwt ${token}`;
+    instance.defaults.headers.Authorization = `Bearer ${token}`;
   } else {
     delete instance.defaults.headers.Authorization;
     Cookies.remove("token");
