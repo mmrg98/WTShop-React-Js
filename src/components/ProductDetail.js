@@ -1,31 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { connect } from "react-redux";
 
-import { addItemToCart } from "../redux/actions";
+//import { addItemToCart } from "../redux/actions";
 
 // Components
+import AddToCart from "./AddToCart";
 
 //Route
 import { Redirect, useParams } from "react-router-dom";
 
-const ProductDetail = ({ products, addItemToCart, cart }) => {
+const ProductDetail = ({ products }) => {
   const { productID } = useParams();
 
   const product = products.find((product) => product.id === +productID);
-  //const [item, setItem] = useState(product);
 
   if (!product) return <Redirect to="/product" />;
 
-
-  const submitOrder = () => {
-    if (!product) alert("Please select an item");
-    else {
-      addItemToCart({ product });
-      console.log("added");
-      console.log(cart);
-    }
-  };
+  // const submitOrder = () => {
+  //   if (!product) alert("Please select an item");
+  //   else {
+  //     addItemToCart({ product_id: product.id, quantity: count });
+  //     //addItemToCart({ product });
+  //     console.log("added");
+  //   }
+  // };
 
   return (
     <div className="col-lg-4 col-md-6 col-12">
@@ -50,21 +49,17 @@ const ProductDetail = ({ products, addItemToCart, cart }) => {
           <br />
           <small className="card-text">{product.stock} left</small>
           <br />
-
-          <button className="btn btn-info ml-2" onClick={submitOrder}>
-            Add to Cart
-          </button>
+          <AddToCart product_id={product.id} />
         </div>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state,cart) => ({
+const mapStateToProps = (state) => ({
   products: state.productsReducer.products,
-  cart,
 });
-const mapDispatchToProps = {
-  addItemToCart,
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+// const mapDispatchToProps = {
+//   addItemToCart,
+// };
+export default connect(mapStateToProps)(ProductDetail);
