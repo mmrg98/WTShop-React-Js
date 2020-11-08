@@ -9,6 +9,7 @@ import {
   checkForExpiredToken,
   fetchCart,
   fetchOrders,
+  fetchProfile,
 } from "./actions";
 
 
@@ -18,7 +19,7 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 store.dispatch(checkForExpiredToken());
 store.dispatch(fetchProducts());
-
+store.dispatch(fetchProfile());
 store.dispatch(fetchCart());
 store.dispatch(fetchOrders());
 
