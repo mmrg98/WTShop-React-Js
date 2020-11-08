@@ -9,21 +9,17 @@ import { addItemToCart } from "../redux/actions";
 //Route
 import { Redirect, useParams } from "react-router-dom";
 
-const ProductDetail = ({ products, addItemToCart, cart }) => {
+const ProductDetail = ({ products, addItemToCart }) => {
   const { productID } = useParams();
 
   const product = products.find((product) => product.id === +productID);
-  //const [item, setItem] = useState(product);
 
   if (!product) return <Redirect to="/product" />;
-
 
   const submitOrder = () => {
     if (!product) alert("Please select an item");
     else {
-      addItemToCart({ product });
-      console.log("added");
-      console.log(cart);
+      addItemToCart({ product_id: product.id, quantity: 1 });
     }
   };
 
@@ -60,7 +56,7 @@ const ProductDetail = ({ products, addItemToCart, cart }) => {
   );
 };
 
-const mapStateToProps = (state,cart) => ({
+const mapStateToProps = (state, cart) => ({
   products: state.productsReducer.products,
   cart,
 });

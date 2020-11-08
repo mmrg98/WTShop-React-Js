@@ -11,14 +11,16 @@ import CartItem from "./CartItem";
 
 import { checkoutCart } from "../redux/actions";
 
-const Cart = ({ cart, user, checkoutCart}) => {
+const Cart = ({ cart, user, checkoutCart }) => {
   const cartItems = cart.map((item) => (
     <CartItem item={item} key={item.product} />
   ));
 
   const handleCheckout = () => {
     if (user) checkoutCart(cart);
-  else {<Redirect to="/login" />};
+    else {
+      <Redirect to="/login" />;
+    }
   };
 
   return (
@@ -27,14 +29,13 @@ const Cart = ({ cart, user, checkoutCart}) => {
         <>
           {cartItems}
           <button full danger onClick={handleCheckout}>
-           Checkout
-           </button>
-          
-       </>
+            Checkout
+          </button>
+        </>
       ) : (
-      <p>Buy something</p> 
+        <p>Buy something</p>
       )}
-      </div>
+    </div>
   );
 };
 
