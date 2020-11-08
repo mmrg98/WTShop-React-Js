@@ -9,7 +9,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import ProductsList from "./components/ProductsList";
 import Signup from "./components/SignupForm";
 import Login from "./components/LoginFrom";
-import Logout from "./components/Logout";
+import Orders from "./components/Orders";
 import ProductDetail from "./components/ProductDetail";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
@@ -38,8 +38,8 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/logout">
-          <Logout />
+        <Route path="/Orders">
+          <Orders />
         </Route>
       </Switch>
     </div>

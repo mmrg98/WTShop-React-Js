@@ -35,7 +35,7 @@ export const logout = () => setCurrentUser();
 const setAuthToken = (token) => {
   if (token) {
     Cookies.set("token", token);
-    instance.defaults.headers.Authorization = `jwt ${token}`;
+    instance.defaults.headers.Authorization = `Bearer ${token}`;
   } else {
     delete instance.defaults.headers.Authorization;
     Cookies.remove("token");

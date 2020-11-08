@@ -1,16 +1,16 @@
-import { SET_CART, ADD_PRODUCT, REMOVE_PRODUCT, CHECKOUT } from "./actionTypes";
+import { SET_CART, ADD_PRODUCT, CHECKOUT } from "./actionTypes";
 import instance from "./instance";
 
-export const addItemToCart = (item) => ({
-  type: ADD_PRODUCT,
-  payload: item,
-});
+// export const addItemToCart = (item) => ({
+//   type: ADD_PRODUCT,
+//   payload: item,
+// });
 
 export const fetchCart = () => async (dispatch) => {
   try {
     const res = await instance.get("cart/");
     const cart = res.data;
-    console.log(cart);
+    console.log("cart", cart);
     dispatch({
       type: SET_CART,
       payload: cart,
@@ -20,26 +20,45 @@ export const fetchCart = () => async (dispatch) => {
   }
 };
 
-// export const addItemToCart = (item) => async (dispatch) => {
-//   try {
-//     console.log("try to add");
-//     const res = await instance.post("orders/", item);
-//     const new_item = res.data;
-//     dispatch({
-//       type: ADD_PRODUCT,
-//       payload: new_item,
-//     });
-//   } catch (error) {
-//     console.error(error.response.data);
-//   }
-// };
+export const addItemToCart = (item) => async (dispatch) => {
+  try {
+    console.log("try to add");
+    const res = await instance.post("orders/", item);
+    const new_item = res.data;
+    dispatch({
+      type: ADD_PRODUCT,
+      payload: new_item,
+    });
+  } catch (error) {
+    console.error("no adding"); //error.response.data
+  }
+};
 
-export const removeItemFromCart = (item) => ({
-  type: REMOVE_PRODUCT,
-  payload: item,
-});
+export const removeItemFromCart = (item) => async (dispatch) => {
+  try {
+    console.log("try to remove");
+    const res = await instance.post("remove/item/", item);
+    const cart = res.data;
+    dispatch({
+      type: SET_CART,
+      payload: cart,
+    });
+  } catch (error) {
+    console.error("no adding"); //error.response.data
+  }
+};
 
-export const checkoutCart = (cart) => ({
-  type: CHECKOUT,
-  payload: cart,
-});
+export const checkoutCart = () => async (dispatch) => {
+  try {
+    console.log("try to checkout");
+    const res = await instance.post("checkout/");
+    //const item = res.data;
+    dispatch({
+      type: CHECKOUT,
+    });
+  } catch (error) {
+    console.error("no checkout"); //error.response.data
+  }
+};
+
+//checkout CHECKOUT
