@@ -18,7 +18,7 @@ const Signup = (props) => {
     props.signup(userData);
   };
 
-  const { username, email, password } = userData;
+  const { username, password } = userData;
   if (props.user) return <Redirect to="/login" />;
 
   return (

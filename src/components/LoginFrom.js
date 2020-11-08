@@ -20,7 +20,8 @@ const Login = (props) => {
 
   const { username, password } = userData;
 
-  if (props.user) return <Redirect to="/product" />;
+  if (props.user) return <Redirect to="/" />;
+  console.log(props);
 
   return (
     <div className="col-6 mx-auto">
@@ -67,6 +68,7 @@ const Login = (props) => {
 const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
   login: (userData) => dispatch(login(userData)),
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

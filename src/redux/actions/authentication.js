@@ -8,11 +8,11 @@ export const login = (userData, history) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        " http://127.0.0.1:8000/api/login/",
+        "http://127.0.0.1:8000/login/",
         userData
       );
-      const { token } = response.data;
-      dispatch(setCurrentUser(token));
+      const { access } = response.data;
+      dispatch(setCurrentUser(access));
       //   history.push("/");
     } catch (error) {
       console.error(error);
@@ -24,7 +24,7 @@ export const signup = (userData) => {
   return async (dispatch) => {
     try {
       const response = await instance.post(
-        "http://127.0.0.1:8000/api/signup/",
+        "signup/",
         userData
       );
       const { token } = response.data;
@@ -49,7 +49,7 @@ const setAuthToken = (token) => {
   }
 };
 
-const setCurrentUser = (token) => {
+export const setCurrentUser = (token) => {
   setAuthToken(token);
   const user = token ? decode(token) : null;
   return {
