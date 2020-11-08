@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -10,8 +10,11 @@ import CartItem from "./CartItem";
 
 //import { checkoutCart } from "../redux/actions";
 
-const Cart = ({ theCart, user, checkoutCart }) => {
-  const cartItems = theCart.theItems.map((item) => <CartItem item={item} />); //key={item.product}
+const Cart = ({ theCart, user, checkoutCart, total }) => {
+  console.log("User", { user });
+  console.log("theCart", { theCart });
+
+  const cartItems = theCart.map((item) => <CartItem item={item} />); //key={item.product}
   console.log(cartItems.length);
 
   const handleCheckout = () => {
@@ -27,7 +30,7 @@ const Cart = ({ theCart, user, checkoutCart }) => {
       {cartItems.length ? (
         <>
           {cartItems}
-          <div>{theCart.total}</div>
+          <div>{total}</div>
           <button full danger onClick={handleCheckout}>
             Checkout
           </button>
@@ -39,9 +42,10 @@ const Cart = ({ theCart, user, checkoutCart }) => {
   );
 };
 
-const mapStateToProps = ({ theCart, user }) => ({
-  theCart,
-  user,
+const mapStateToProps = (state) => ({
+  theCart: state.theCart.cart,
+  total: state.theCart.total,
+  user: state.user,
 });
 
 const mapDispatchToProps = (dispatch) => ({
