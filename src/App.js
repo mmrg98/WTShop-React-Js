@@ -51,7 +51,6 @@ function App() {
         <Route path="/Orders">
           <Orders />
         </Route>
-
       </Switch>
     </div>
   );
