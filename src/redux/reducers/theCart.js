@@ -18,10 +18,14 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case ADD_PRODUCT:
-      return state;
+      const newItem = payload;
+      return {
+        ...state,
+        cart: [...cart, newItem],
+      };
 
     case CHECKOUT:
-      state = [];
+      state = initialState;
       return state;
 
     default:
