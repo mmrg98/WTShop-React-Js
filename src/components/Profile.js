@@ -5,9 +5,9 @@ import { setCurrentUser } from "../redux/actions/authentication";
 //import Loading from "./Loading";
 //import { selectChannel, fetchMesseges } from "../redux/actions";
 
-const Profile = (props) => {
+const Profile = ({ profile }) => {
   //const chanels = props.channels;
-  console.log(props);
+  console.log(profile);
 
   /*const filterChannels = () => {
     return chanels.filter((chanel) => {
@@ -36,16 +36,18 @@ const Profile = (props) => {
   return (
     <div>
       <hr />
-      <div>Welcome </div>
 
-      <div></div>
+      <div>
+        <img src={profile.profile.image} />
+      </div>
+      <div>{profile.profile.user['username']}</div>
     </div>
   );
 };
 
-const mapStateToProps = ({user}) => {
+const mapStateToProps = ({ profile }) => {
   return {
-    user,
+    profile,
   };
 };
 /*const mapDispatchToProps = (dispatch) => ({

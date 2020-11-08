@@ -12,6 +12,7 @@ const Header = ({ user }) => (
       <h4 className="menu-item active">
         <NavLink to="/cart"> ______Cart</NavLink> ______
         <NavLink to="/">home</NavLink>
+        <NavLink to="/profile">___profile</NavLink>
       </h4>
       {user ? (
         <Logout />
