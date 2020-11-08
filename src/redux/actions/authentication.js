@@ -6,7 +6,9 @@ import Cookies from "js-cookie";
 export const login = (userData, history) => {
   return async (dispatch) => {
     try {
+
       const response = await instance.post("login/", userData);
+
       const { access } = response.data;
       dispatch(setCurrentUser(access));
       //   history.push("/");
@@ -19,7 +21,9 @@ export const login = (userData, history) => {
 export const signup = (userData) => {
   return async (dispatch) => {
     try {
+
       const response = await instance.post("signup/", userData);
+
       const { token } = response.data;
       dispatch(setCurrentUser(token));
       //   history.push("/");
@@ -42,7 +46,7 @@ const setAuthToken = (token) => {
   }
 };
 
-const setCurrentUser = (token) => {
+export const setCurrentUser = (token) => {
   setAuthToken(token);
   const user = token ? decode(token) : null;
   return {
