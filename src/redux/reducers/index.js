@@ -12,7 +12,6 @@ const rootReducer = combineReducers({
   user: userReducer,
   productsReducer,
   profile,
-
   ordersReducer,
   theCart: theCartReducer,
 

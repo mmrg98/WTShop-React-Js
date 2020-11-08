@@ -12,7 +12,7 @@ import CartItem from "./CartItem";
 
 const Cart = ({ theCart, user, checkoutCart, total }) => {
   console.log("User", { user });
-  console.log("theCart", { theCart });
+  console.log("theCart", { total });
 
   const cartItems = theCart.map((item) => <CartItem item={item} />); //key={item.product}
   console.log(cartItems.length);

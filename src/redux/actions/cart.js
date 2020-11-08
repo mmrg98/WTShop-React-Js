@@ -40,7 +40,7 @@ export const addItemToCart = (item) => async (dispatch) => {
 
 export const removeItemFromCart = (item) => async (dispatch) => {
   try {
-    console.log("try to remove");
+    console.log("try to remove",item);
     const res = await instance.post("remove/item/", item);
     const cart = res.data;
     dispatch({
