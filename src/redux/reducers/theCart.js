@@ -14,7 +14,7 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_CART:
       console.log("red", payload);
-      const cart = payload.theItems;
+      const cart = payload.items;
       const total = payload.total;
       return {
         ...state,
@@ -23,7 +23,8 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case ADD_PRODUCT:
-      const newItem = payload;
+
+     // const newItem = payload;
       // return {
       //   ...state,
       //   cart: [...cart, newItem],
@@ -32,6 +33,7 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case SET_CURRENT_USER:
       if (!payload) return initialState;
+
 
     case CHECKOUT:
       return initialState;

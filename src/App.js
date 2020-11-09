@@ -9,10 +9,14 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import ProductsList from "./components/ProductsList";
 import Signup from "./components/SignupForm";
 import Login from "./components/LoginFrom";
+
+import Profile from "./components/Profile";
+
 import Orders from "./components/Orders";
 import ProductDetail from "./components/ProductDetail";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
+
 import "./App.css";
 
 function App() {
@@ -26,6 +30,11 @@ function App() {
         <Route path="/product/:productID">
           <ProductDetail />
         </Route>
+
+        <Route path="/profile">
+          <Profile />
+        </Route>
+
         <Route path="/cart">
           <Cart />
         </Route>
@@ -38,6 +47,7 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
+
         <Route path="/Orders">
           <Orders />
         </Route>
