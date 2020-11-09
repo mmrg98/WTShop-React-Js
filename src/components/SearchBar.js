@@ -1,0 +1,20 @@
+import React from "react";
+
+
+const SearchBar = props => {
+
+
+  return (
+    <div className="row m-3">
+      <input
+        className="form-control col-4"
+        placeholder={props.placeholder}
+        name="search"
+        type="text"
+        onChange={(e) => props.onChange(e.target.value)}
+      />
+    </div>
+  );
+};
+
+export default SearchBar;
