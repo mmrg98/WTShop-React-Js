@@ -16,7 +16,7 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 store.dispatch(checkForExpiredToken());
 store.dispatch(fetchProducts());
-store.dispatch(fetchCart());
-store.dispatch(fetchOrders());
+// store.dispatch(fetchCart());
+// store.dispatch(fetchOrders());
 
 export default store;

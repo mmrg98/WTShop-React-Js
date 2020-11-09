@@ -1,4 +1,9 @@
-import { SET_CART, ADD_PRODUCT, CHECKOUT } from "../actions/actionTypes";
+import {
+  SET_CART,
+  ADD_PRODUCT,
+  CHECKOUT,
+  SET_CURRENT_USER,
+} from "../actions/actionTypes";
 
 const initialState = {
   cart: [],
@@ -19,14 +24,17 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case ADD_PRODUCT:
       const newItem = payload;
-      return {
-        ...state,
-        cart: [...cart, newItem],
-      };
+      // return {
+      //   ...state,
+      //   cart: [...cart, newItem],
+      // };
+      return state;
+
+    case SET_CURRENT_USER:
+      if (!payload) return initialState;
 
     case CHECKOUT:
-      state = initialState;
-      return state;
+      return initialState;
 
     default:
       return state;

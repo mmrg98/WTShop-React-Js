@@ -3,13 +3,14 @@ import instance from "./instance";
 import { SET_CURRENT_USER } from "./actionTypes";
 import Cookies from "js-cookie";
 
+import { fetchCart, fetchOrders } from "./index";
+
 export const login = (userData, history) => {
   return async (dispatch) => {
     try {
       const response = await instance.post("login/", userData);
       const { access } = response.data;
       dispatch(setCurrentUser(access));
-      //   history.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -22,7 +23,6 @@ export const signup = (userData) => {
       const response = await instance.post("signup/", userData);
       const { token } = response.data;
       dispatch(setCurrentUser(token));
-      //   history.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -45,9 +45,13 @@ const setAuthToken = (token) => {
 const setCurrentUser = (token) => {
   setAuthToken(token);
   const user = token ? decode(token) : null;
-  return {
-    type: SET_CURRENT_USER,
-    payload: user,
+  return (dispatch) => {
+    dispatch({
+      type: SET_CURRENT_USER,
+      payload: user,
+    });
+    dispatch(fetchOrders());
+    dispatch(fetchCart());
   };
 };
 export const checkForExpiredToken = () => {
