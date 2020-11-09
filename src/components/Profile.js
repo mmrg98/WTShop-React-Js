@@ -6,6 +6,7 @@ import { setCurrentUser } from "../redux/actions/authentication";
 //import { selectChannel, fetchMesseges } from "../redux/actions";
 
 const Profile = ({ profile }) => {
+  
   //const chanels = props.channels;
   console.log(profile);
 
