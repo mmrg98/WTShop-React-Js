@@ -1,58 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { setCurrentUser } from "../redux/actions/authentication";
-//import Loading from "./Loading";
-//import { selectChannel, fetchMesseges } from "../redux/actions";
+import { Link } from "react-router-dom";
+import { fetchOrders } from "../redux/actions";
 
-const Profile = ({ profile }) => {
-  
-  //const chanels = props.channels;
+const Profile = ({ profile, user }) => {
   console.log(profile);
-
-  /*const filterChannels = () => {
-    return chanels.filter((chanel) => {
-      return chanel.owner == user.username;
-    });
-  };
-
-  const handleClick = (chnl) => {
-    const draft = localStorage.getItem(`msgInLocalStorage_${chnl.id}`);
-    props.selectChannel(chnl.id, draft);
-  };
-
-  let chanelCards = filterChannels().map((chnl) => (
-    <div key={chnl.name + chnl.id}>
-      <p
-        className="h5 rounded-pill chnl-menu btn-outline-secondary text-black"
-        onClick={() => handleClick(chnl)}
-      >
-        {chnl.name}
-      </p>
-    </div>
-  ));*/
-
-  //if (props.loadingChannels) return <Loading />;
 
   return (
     <div>
+      <Link to="/orders">
+        <button className="btn btn-danger">order</button>
+      </Link>
       <hr />
 
       <div>
-        <img src={profile.profile.image} />
+        <img src={profile.image} />
       </div>
-      <div>{profile.profile.user['username']}</div>
+      {/* <div>{profile.user["username"]}</div> */}
+      <div>{user.username}</div>
     </div>
   );
 };
 
-const mapStateToProps = ({ profile }) => {
+const mapStateToProps = (state) => {
   return {
-    profile,
+    profile: state.profile.profile,
+    user: state.profile.user,
   };
 };
-/*const mapDispatchToProps = (dispatch) => ({
-    setCurrentUser: (token) => dispatch(setCurrentUser(token)),
-  });*/
+const mapDispatchToProps = (dispatch) => ({
+  fetchOrders: () => dispatch(fetchOrders()),
+});
 
-export default connect(mapStateToProps, null)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

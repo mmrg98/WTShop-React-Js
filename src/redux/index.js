@@ -12,7 +12,6 @@ import {
   fetchProfile,
 } from "./actions";
 
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
@@ -22,10 +21,6 @@ store.dispatch(fetchProducts());
 
 // store.dispatch(fetchCart());
 // store.dispatch(fetchOrders());
-
-store.dispatch(fetchProfile());
-
-
-
+//store.dispatch(fetchProfile());
 
 export default store;
