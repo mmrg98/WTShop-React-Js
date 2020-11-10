@@ -21,38 +21,43 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
-      <div className="row">
+    <>
+      <div className="">
         <Header />
       </div>
-      <Switch>
-        <Redirect exact from="/" to="/product" />
-        <Route path="/product/:productID">
-          <ProductDetail />
-        </Route>
+      <br />
+      <br />
+      <br />
+      <div className="container">
+        <Switch>
+          <Redirect exact from="/" to="/product" />
+          <Route path="/product/:productID">
+            <ProductDetail />
+          </Route>
 
-        <Route path="/profile">
-          <Profile />
-        </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
 
-        <Route path="/cart">
-          <Cart />
-        </Route>
-        <Route path="/product">
-          <ProductsList />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route path="/product">
+            <ProductsList />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
 
-        <Route path="/Orders">
-          <Orders />
-        </Route>
-      </Switch>
-    </div>
+          <Route path="/Orders">
+            <Orders />
+          </Route>
+        </Switch>
+      </div>
+    </>
   );
 }
 

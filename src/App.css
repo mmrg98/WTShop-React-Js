@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+.image {
+  /* border: 1px solid #ddd; */
+  /* border-radius: 29px;
+  padding: 39px;
+  width: 350px; */
+  /* height: 350px; */
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto; */
+  width: 100%;
+  height: 300px;
+  object-fit: fill;
+}
+
+.main-card {
+  padding: 30px 30px 30px 30px;
+  /* border: 9px solid #282c34;
+  border-style: dotted; */
+  border: 2px solid red;
+  border-radius: 5px;
+}

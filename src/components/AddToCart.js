@@ -14,19 +14,22 @@ const AddToCart = ({ product_id, addItemToCart }) => {
   };
 
   return (
-    <div>
+    <div className="text-center">
       <div>
         <input value={count} />
         <button
-          className="btn btn-info ml-2"
+          className="btn-sm  btn-secondary ml-1"
           onClick={() => setCount(count + 1)}
         >
           +
         </button>
       </div>
-      <button className="btn btn-info ml-2" onClick={submitOrder}>
-        Add to Cart
-      </button>
+
+      <div className="btn-sm  ml-2 font-weight-normal">
+        <button className="btn btn-secondary   " onClick={submitOrder}>
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };
