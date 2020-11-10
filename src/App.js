@@ -22,40 +22,60 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="">
-        <Header />
-      </div>
-      <br />
-      <br />
-      <br />
-      <div className="container">
-        <Switch>
-          <Redirect exact from="/" to="/product" />
-          <Route path="/product/:productID">
-            <ProductDetail />
-          </Route>
+      <div className="bg-dark">
+        <div className="bg-white">
+          <Header />
+        </div>
+        <br />
+        <br />
+        <br />
+        <div className="container ">
+          <Switch>
+            <Redirect exact from="/" to="/product" />
+            <Route path="/product/:productID">
+              <ProductDetail />
+            </Route>
 
-          <Route path="/profile">
-            <Profile />
-          </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
 
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/product">
-            <ProductsList />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            <Route path="/product">
+              <ProductsList />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
 
-          <Route path="/Orders">
-            <Orders />
-          </Route>
-        </Switch>
+            <Route path="/Orders">
+              <Orders />
+            </Route>
+          </Switch>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </>
   );

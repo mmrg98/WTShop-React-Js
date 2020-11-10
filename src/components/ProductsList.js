@@ -21,14 +21,25 @@ const ProductsList = (props) => {
 
   return (
     <div className="scrollable">
-      <hr className="sidebar-divider my-3" />
-      <SearchBar
-        onChange={setQeury}
-        className=""
-        placeholder="Search for producs"
-      />
-      <h1 className="sidebar-heading text-monospace text-Black">Menue</h1>
-      <div className="card my-3 main-card rounded">
+      {/* <hr className="sidebar-divider my-3" /> */}
+
+      <br />
+      <div className="row ">
+        <div className="col-lg-8 col-md-6 col-12">
+          <h1 className="sidebar-heading text-monospace text-danger">Menu: </h1>
+        </div>
+        <div className="col-lg-4 col-md-6 col-12 text-right">
+          <p className="">
+            <SearchBar
+              onChange={setQeury}
+              className=""
+              placeholder="Search for products"
+            />
+          </p>
+        </div>
+      </div>
+
+      <div className="card rounded main-card">
         <div className="row">{productCards}</div>
       </div>
     </div>

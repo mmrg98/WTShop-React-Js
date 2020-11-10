@@ -26,18 +26,53 @@ const Cart = ({ theCart, user, checkoutCart, total }) => {
   };
 
   return (
-    <div>
-      {cartItems.length ? (
-        <>
-          {cartItems}
-          <div>{total}</div>
-          <button full danger onClick={handleCheckout}>
-            Checkout
-          </button>
-        </>
-      ) : (
-        <p>Buy something</p>
-      )}
+    <div className="container ">
+      <br />
+      <br />
+      <br />
+      <div>
+        <div class="card text-center">
+          <div class="card-header">Your Card</div>
+          <div class="card-body">
+            {cartItems.length ? (
+              <>
+                {cartItems}
+
+                <div className="m-1">{total} SAR</div>
+                <button class="btn btn-outline-danger" onClick={handleCheckout}>
+                  Checkout
+                </button>
+              </>
+            ) : (
+              <ul>
+                <li class="list-group-item list-group-item-danger">
+                  Buy Something
+                </li>
+              </ul>
+            )}
+          </div>
+          <div class="card-footer text-muted">
+            <br />
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
     </div>
   );
 };

@@ -1,13 +1,10 @@
 import React from "react";
 
-
-const SearchBar = props => {
-
-
+const SearchBar = (props) => {
   return (
-    <div className="row m-3">
+    <div className="">
       <input
-        className="form-control col-4"
+        className="form-control"
         placeholder={props.placeholder}
         name="search"
         type="text"

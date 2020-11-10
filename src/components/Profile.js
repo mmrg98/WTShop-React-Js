@@ -7,18 +7,29 @@ const Profile = ({ profile, user }) => {
   console.log(profile);
 
   return (
-    <div>
-      <Link to="/orders">
-        <button className="btn btn-danger">order</button>
-      </Link>
-      <hr />
+    <>
+      <br /> <br /> <br /> <br />
+      <br />
+      <br />
+      <div className="media bg-white">
+        <img src={profile.image} className="mr-3" alt="..." />
+        <div className="media-body">
+          <br />
+          <br />
+          <h3 className="mt-2 text-monospace text-center">
+            username: {user.username}
+          </h3>
 
-      <div>
-        <img src={profile.image} />
+          <br />
+          <h5 className="text-center">
+            <Link to="/orders">
+              <button className="btn btn-danger">Orders History</button>
+            </Link>
+          </h5>
+        </div>
       </div>
-      {/* <div>{profile.user["username"]}</div> */}
-      <div>{user.username}</div>
-    </div>
+      <div></div>
+    </>
   );
 };
 

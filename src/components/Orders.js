@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 const Orders = ({ orders, user }) => {
+  const element = <FontAwesomeIcon icon={faCalendarAlt} />;
   console.log("user", { user });
   if (!user) return <Redirect to="/product" />;
   let allorders = orders.map((order) => {
@@ -14,20 +16,35 @@ const Orders = ({ orders, user }) => {
       const price = item.product.price;
       const quantity = item.quantity;
       return (
-        <div>
-          Name: {name} Price: {price}, quantity: {quantity}
-        </div>
+        <>
+          <div>
+            Name: {name} Price: {price}, quantity: {quantity}
+          </div>
+        </>
       );
     });
     return (
-      <div>
-        Date: {date}, Total: {total},<div>{allproduct}</div>
-      </div>
+      <>
+        <br />
+
+        <div class="card">
+          <div class="card-header">
+            {element} {date}, Total: {total}
+          </div>
+          <div class="card-body">{allproduct}</div>
+        </div>
+      </>
     );
   });
 
   return (
     <div>
+      <br />
+      <br />
+      <br />
+      <h1 className="sidebar-heading text-monospace text-danger">
+        Orders History:{" "}
+      </h1>
       <div>{allorders}</div>
     </div>
   );

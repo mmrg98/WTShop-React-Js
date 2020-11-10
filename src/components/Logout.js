@@ -4,7 +4,7 @@ import { logout } from "../redux/actions";
 
 const Logout = ({ user, logout }) => {
   return (
-    <button className="btn btn-danger" onClick={() => logout()}>
+    <button className="btn btn-outline-danger btn-sm" onClick={() => logout()}>
       Logout {user.username}
     </button>
   );
