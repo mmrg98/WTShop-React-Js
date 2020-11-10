@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { fetchProducts } from "../redux/actions";
 import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
+import "../App.css";
 
 const ProductsList = (props) => {
-
   const [query, setQeury] = useState("");
   const products = props.products;
 
@@ -27,9 +27,10 @@ const ProductsList = (props) => {
         className=""
         placeholder="Search for producs"
       />
-      <div className="sidebar-heading text-white">products</div>
-
-      <div className="mx-3">{productCards}</div>
+      <h1 className="sidebar-heading text-monospace text-Black">Menue</h1>
+      <div className="card my-3 main-card rounded">
+        <div className="row">{productCards}</div>
+      </div>
     </div>
   );
 };
