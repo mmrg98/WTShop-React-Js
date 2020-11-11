@@ -18,6 +18,7 @@ import Header from "./components/Header";
 import Cart from "./components/Cart";
 
 import "./App.css";
+import ProfileForm from "./components/ProfileForm";
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
 
             <Route path="/profile">
               <Profile />
+            </Route>
+
+            <Route path="/profileEdit">
+              <ProfileForm />
             </Route>
 
             <Route path="/cart">

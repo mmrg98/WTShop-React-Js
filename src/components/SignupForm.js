@@ -8,6 +8,9 @@ const Signup = (props) => {
   const [userData, setUserData] = useState({
     username: "",
     password: "",
+    first_name: "",
+    last_name: "",
+    email: ""
   });
 
   const handleChange = (event) =>
@@ -18,7 +21,7 @@ const Signup = (props) => {
     props.signup(userData);
   };
 
-  const { username, password } = userData;
+  const { username, password, first_name, last_name, email } = userData;
   if (props.user) return <Redirect to="/login" />;
 
   return (
@@ -26,6 +29,30 @@ const Signup = (props) => {
       <div className="card my-5">
         <div className="card-body">
           <form onSubmit={handleSubmit}>
+          <div className="form-group">
+              <label htmlFor="first_name">First Name</label>
+              <input
+                type="text"
+                className="form-control"
+                id="first_name"
+                value={first_name}
+                name="first_name"
+                placeholder="First Name"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="last_name">Last Name</label>
+              <input
+                type="text"
+                className="form-control"
+                id="last_name"
+                value={last_name}
+                name="last_name"
+                placeholder="Last Name"
+                onChange={handleChange}
+              />
+            </div>
             <div className="form-group">
               <label htmlFor="username">Username</label>
               <input
@@ -38,7 +65,7 @@ const Signup = (props) => {
                 onChange={handleChange}
               />
             </div>
-            {/* <div className="form-group">
+            <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
                 type="email"
@@ -48,8 +75,8 @@ const Signup = (props) => {
                 name="email"
                 placeholder="Email"
                 onChange={handleChange}
-              /> */}
-            {/* </div> */}
+              /> 
+             </div> 
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
