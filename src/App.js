@@ -16,6 +16,7 @@ import Orders from "./components/Orders";
 import ProductDetail from "./components/ProductDetail";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 import "./App.css";
 import ProfileForm from "./components/ProfileForm";
@@ -62,7 +63,9 @@ function App() {
               <Orders />
             </Route>
           </Switch>
+          <Footer />
         </div>
+        {/* <br />
         <br />
         <br />
         <br />
@@ -79,8 +82,7 @@ function App() {
         <br />
         <br />
         <br />
-        <br />
-        <br />
+        <br /> */}
       </div>
     </>
   );
