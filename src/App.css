@@ -62,3 +62,9 @@
   height: 56px;
   object-fit: fill;
 }
+
+.image-detail {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
