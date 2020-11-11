@@ -107,7 +107,7 @@ const ProductsList = (props) => {
           <span className="sr-only">Next</span>
         </a>
       </div> */}{" "}
-      */}
+     
       <div className="row ">
         <div className="col-lg-8 col-md-6 col-12">
           <h1 className="sidebar-heading text-monospace text-danger">Menu: </h1>
