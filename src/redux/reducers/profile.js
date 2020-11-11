@@ -1,4 +1,4 @@
-import { SET_PROFILE } from "../actions";
+import { SET_PROFILE, EDIT_PROFILE } from "../actions";
 
 const initialState = {
   profile: {},
@@ -14,6 +14,13 @@ const reducer = (state = initialState, { type, payload }) => {
         profile: profile,
         user: user,
       };
+
+      case EDIT_PROFILE:
+        
+        return {
+          ...state,
+          profile: profile,
+        };
     default:
       return state;
   }

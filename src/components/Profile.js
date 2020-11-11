@@ -25,6 +25,9 @@ const Profile = ({ profile, user }) => {
             <Link to="/orders">
               <button className="btn btn-danger">Orders History</button>
             </Link>
+            <Link to="/profileEdit">
+              <button className="btn btn-info ml-3">Edit Profile</button>
+            </Link>
           </h5>
         </div>
       </div>

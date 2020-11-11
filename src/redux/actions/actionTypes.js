@@ -12,3 +12,5 @@ export const CHECKOUT = "CHECKOUT";
 
 export const SET_ORDERS = "SET_ORDERS";
 
+export const EDIT_PROFILE = "EDIT_PROFILE"
+
